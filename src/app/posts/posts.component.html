@@ -1,0 +1,38 @@
+<div *ngIf="!name; else forminfo">
+  <form [formGroup]="rForm" (ngSubmit)="addProduct(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <h1>Reactive Product Form</h1>
+
+        <label>Unique Product Code
+          <input type="text"  formControlName="uin">
+        </label>
+        <label>Name
+          <input type="text" formControlName="name">
+        </label>
+        <label>Brand
+            <input type="text" formControlName="brand">
+          </label>
+        <label>Grade
+          <input type="text" value="{}" formControlName="grade">
+        </label>
+
+
+        <input type="submit" class="button expanded" value="Submit" [disabled]="!rForm.valid">
+
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+      <h1>{{ product }}</h1>
+
+      <p>{{ brand }}</p>
+    </div>
+  </div>
+</ng-template>
+

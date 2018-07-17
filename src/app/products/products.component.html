@@ -1,0 +1,13 @@
+<h1> Product Catalogue</h1>
+
+<ul [@listStagger]="products">
+  <li *ngFor="let product of products">
+    <a routerLink="/prodesc/{{product.uin}}">{{product.name}}</a>
+    <ul>
+      <li>
+        <strong>Unique Code : </strong> {{ product.uin }}</li>
+      <li>
+        <strong>Grade : </strong>{{ product.grade }}</li>
+    </ul>
+  </li>
+</ul>
